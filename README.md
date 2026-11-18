@@ -72,16 +72,38 @@ cd BappyGPT
 
 ### 3. Create a virtual environment
 
-Using conda:
+Using Conda:
 
 ```bash
 conda create -n bappygpt python=3.11 -y
 ```
 
+Or, using Python's built-in `venv` on Windows:
+
+```powershell
+py -3.11 -m venv .venv
+```
+
 ### 4. Activate the virtual environment
+
+With Conda:
 
 ```bash
 conda activate bappygpt
+```
+
+With `venv` in PowerShell:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+If PowerShell blocks the activation script, allow it only for the current
+PowerShell session and try again:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\.venv\Scripts\Activate.ps1
 ```
 
 ### 5. Install dependencies
@@ -135,7 +157,7 @@ http://127.0.0.1:8080
 ## Project Structure
 
 ```text
-BappyGPT/
+MlayGPT/
 │
 ├── app.py                  # FastAPI app and streaming chat endpoints
 ├── agent.py                # LangGraph agent setup and tool orchestration
